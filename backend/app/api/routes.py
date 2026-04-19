@@ -27,6 +27,7 @@ from app.rag.vector_store import create_vector_store, load_vector_store, get_ret
 from app.rag.embedder import get_embeddings
 from app.rag.chain import create_rag_chain
 from app.rag.retriever import retrieve
+from app.config import settings
 
 router = APIRouter()
 
@@ -93,7 +94,7 @@ async def ingest_document(file: UploadFile = File(...)):
             return IngestResponse(
                 message=f"Successfully ingested {file.filename}",
                 num_chunks=len(chunks),
-                persisted_path="chroma_db",  # Persistence path from config
+                persisted_path=settings.CHROMA_DB_PATH,  # Persistence path from config
             )
         finally:
             # Cleanup temp file
