@@ -7,7 +7,7 @@ from typing import List
 from langchain_core.documents import Document
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
-from backend.app.config import settings
+from ..config import settings
 
 
 def split_documents(documents: List[Document]) -> List[Document]:

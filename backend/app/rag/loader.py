@@ -27,7 +27,7 @@ def load_document(file_path: str) -> List[Document]:
         raise FileNotFoundError(f"File not found: {file_path}")
 
     # Step 4: Validate resolved path is within base directory
-    from backend.app.config import settings
+    from ..config import settings
     base_dir = Path(settings.CHROMA_DB_PATH).parent / "documents"
     base_dir.mkdir(parents=True, exist_ok=True)
 

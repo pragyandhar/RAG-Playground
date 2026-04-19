@@ -2,11 +2,6 @@ from pydantic import BaseModel
 from typing import List, Optional
 
 # TODO 2: Create these Pydantic models:
-
-from pydantic import BaseModel
-from typing import List, Optional
-
-
 class IngestRequest(BaseModel):
     """Request model for document ingestion."""
 
