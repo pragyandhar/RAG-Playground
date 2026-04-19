@@ -35,9 +35,13 @@ class EmbeddingManager:
             model=settings.EMBEDDING_MODEL,
             openai_api_key=settings.FOUNDRY_API_KEY,
             openai_api_base=settings.FOUNDRY_ENDPOINT,
-            openai_headers={
+            default_headers={
                 "User-Agent": "RAG-Playground/1.0",
             },
+            # Disable tiktoken-based token counting (requires network access to download
+            # cl100k_base.tiktoken from openaipublic.blob.core.windows.net).
+            # Safe here because chunks are already split to ~1000 chars by the splitter.
+            check_embedding_ctx_length=False,
         )
         return client
 

@@ -58,7 +58,6 @@ class VectorStoreManager:
             persist_directory=str(self._db_path),
             collection_name=self._collection_name,
         )
-        vector_store.persist()
 
         return vector_store
 

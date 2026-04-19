@@ -85,11 +85,7 @@ async def ingest_document(file: UploadFile = File(...)):
 
             # Create vector store
             vector_store = create_vector_store(chunks)
-
-            # Get retriever and retrieve to confirm
             retriever = get_retriever(vector_store)
-            # Test retrieval to ensure setup works
-            _ = retrieve("test", retriever)
 
             return IngestResponse(
                 message=f"Successfully ingested {file.filename}",
